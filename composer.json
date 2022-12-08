@@ -1,0 +1,17 @@
+{
+    "name": "saidd/coding-test-dwidasa-php",
+    "description": "Coding Test",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Said Dinar Fadilah",
+            "email": "saiddinarfadilah@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CodingTest\\php\\" : "app"
+        }
+    }
+}
