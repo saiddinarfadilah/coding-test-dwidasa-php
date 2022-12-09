@@ -15,8 +15,8 @@
         <td><?= $model["worker"]["branch"]?></td>
         <td><?= $model["worker"]["position"]?></td>
         <td>
-            <a href="#"><button type="button" class="btn btn-secondary">Edit</button></a>
-            <a href="#"><button type="button" class="btn btn-secondary">Delete</button></a>
+            <a href="/worker/edit"><button type="button" class="btn btn-secondary">Edit</button></a>
+            <a href="/worker/delete"><button type="button" class="btn btn-secondary">Delete</button></a>
         </td>
     </tr>
     </tbody>

@@ -40,7 +40,7 @@ class WorkerController
         $model = [
             'title' => 'Add Worker'
         ];
-        View::render("Worker/add", $model);
+        View::render("Worker/edit", $model);
     }
 
     public function postAdd():void
@@ -55,8 +55,38 @@ class WorkerController
         View::redirect("/worker");
     }
 
+    public function formUpdate():void
+    {
+        $worker = $this->workerRepository->findAll();
+        $model = [
+            'title' => 'Edit Worker',
+            'worker' => [
+                'id' => $worker->getIdWorker(),
+                'name' => $worker->getName(),
+                'branch' => $worker->getBranchIdBranch(),
+                'position' => $worker->getPosition()
+            ]
+        ];
+        View::render("Worker/edit", $model);
+    }
+
+    public function postUpdate():void
+    {
+        $worker = $this->workerRepository->findAll();
+        $request = new WorkerAddRequest();
+        $request->setIdWorker($worker->getIdWorker());
+        $request->setName($_POST['name']);
+        $request->setBranchIdBranch($_POST['branchidbranch']);
+        $request->setPosition($_POST['position']);
+
+        $this->workerService->edit($request);
+        View::redirect("/worker");
+    }
+
     public function destroy():void
     {
-
+        $worker = $this->workerRepository->findAll();
+        $this->workerRepository->deleteById($worker->getIdWorker());
+        View::redirect("/worker");
     }
 }

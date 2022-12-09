@@ -36,4 +36,16 @@ class WorkerService
         return $response;
     }
 
+    public function edit(WorkerAddRequest $request):WorkerAddResponse
+    {
+        $worker =$this->workerRepository->findById($request->getIdWorker());
+        $worker->setName($request->getName());
+        $worker->setBranchIdBranch($request->getBranchIdBranch());
+        $worker->setPosition($request->getPosition());
+        $this->workerRepository->update($worker);
+
+        $response = new WorkerAddResponse();
+        $response->worker = $worker;
+        return $response;
+    }
 }

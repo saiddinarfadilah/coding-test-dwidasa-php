@@ -2,27 +2,26 @@
 
 namespace CodingTest\php\Domain;
 
-class Worker
+class Client
 {
-    private string $idWorker;
+    private string $idClient;
     private string $name;
     private int $branchIdBranch;
-    private string $position;
 
     /**
      * @return string
      */
-    public function getIdWorker(): string
+    public function getIdClient(): string
     {
-        return $this->idWorker;
+        return $this->idClient;
     }
 
     /**
-     * @param string $idWorker
+     * @param string $idClient
      */
-    public function setIdWorker(string $idWorker): void
+    public function setIdClient(string $idClient): void
     {
-        $this->idWorker = $idWorker;
+        $this->idClient = $idClient;
     }
 
     /**
@@ -55,22 +54,6 @@ class Worker
     public function setBranchIdBranch(int $branchIdBranch): void
     {
         $this->branchIdBranch = $branchIdBranch;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPosition(): string
-    {
-        return $this->position;
-    }
-
-    /**
-     * @param string $position
-     */
-    public function setPosition(string $position): void
-    {
-        $this->position = $position;
     }
 
 
